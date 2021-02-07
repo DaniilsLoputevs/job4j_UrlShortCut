@@ -1,0 +1,61 @@
+## site registration
+POST http://localhost:8083/shortcut/registration/
+Content-Type: application/json
+
+{
+  "domainUrl": "job4j.ru"
+}
+
+###
+
+## get JWT for login&password
+POST http://localhost:8083/shortcut/login/
+Content-Type: application/json
+
+{
+  "login": "asdf",
+  "password": "1234"
+}
+
+###
+
+## encode url
+POST http://localhost:8083/shortcut/urls/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhc2RmIiwiZXhwIjoxNjEyNzM4MjI0LCJpYXQiOjE2MTI3MjAyMjR9.O84NRpovqYWXVN9x84UX0WLbHF5GfOqEEH-vkYaZ5cl5TfV_vhi75R92KCtmMhivmlDCECfz0ufORv4zp_8I-g
+
+{
+  "url": "job4j.ru/edu"
+}
+
+###
+
+## decode url
+## "urlKey": "UNIQUE_CODE" - change every runtime.
+GET http://localhost:8083/shortcut/urls/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhc2RmIiwiZXhwIjoxNjEyNzM4MjI0LCJpYXQiOjE2MTI3MjAyMjR9.O84NRpovqYWXVN9x84UX0WLbHF5GfOqEEH-vkYaZ5cl5TfV_vhi75R92KCtmMhivmlDCECfz0ufORv4zp_8I-g
+
+{
+  "urlKey": "mHbMoCNNajNiUxDBNAJmtIhPaxZ6DxQs"
+}
+
+###
+
+## redirect url
+## "urlKey": "UNIQUE_CODE" - change every runtime.
+GET http://localhost:8083/shortcut/urls/redirect
+Content-Type: application/json
+
+{
+  "urlKey": "mHbMoCNNajNiUxDBNAJmtIhPaxZ6DxQs"
+}
+
+###
+
+## get statistic
+GET http://localhost:8083/shortcut/urls/statistic
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhc2RmIiwiZXhwIjoxNjEyNzM4MjI0LCJpYXQiOjE2MTI3MjAyMjR9.O84NRpovqYWXVN9x84UX0WLbHF5GfOqEEH-vkYaZ5cl5TfV_vhi75R92KCtmMhivmlDCECfz0ufORv4zp_8I-g
+
+
+###
