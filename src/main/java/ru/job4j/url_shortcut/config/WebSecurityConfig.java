@@ -27,8 +27,6 @@ import static ru.job4j.url_shortcut.controllers.UrlsController.CONTROLLER_URLS_R
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     
-    @Autowired
-    private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
     
     @Autowired
     private UserDetailsService jwtUserDetailsService;
@@ -38,10 +36,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        // configure AuthenticationManager so that it knows from where to load
-        // user for matching credentials
-        // Use BCryptPasswordEncoder
-        // IMPORTANT - it work only for real DB, not for manual creating {@code UserDetails}
         auth.userDetailsService(jwtUserDetailsService).passwordEncoder(passwordEncoder());
     }
     
@@ -58,18 +52,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        // We don't need CSRF for this example
         httpSecurity.csrf().disable()
-                // dont authenticate this particular request
                 .authorizeRequests().antMatchers(CONTROLLER_REGISTRATION, CONTROLLER_LOGIN, CONTROLLER_URLS_REDIRECT)
                 .permitAll()
-                // all other requests need to be authenticated
                 .anyRequest().authenticated()
-                // make sure we use stateless session; session won't be used to
-                // store user's state.
-//                .and()
-//                .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)
-                // Add a filter to validate the tokens with every request
                 .and()
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class)
                 .sessionManagement()

@@ -28,7 +28,6 @@ public class UrlsManager {
      * @return - unique key for url.
      */
     public String encode(String url) throws IllegalStateException {
-//        if (checkDomainsUrl(url)) throw new IllegalStateException("Url has unregistered domain. url: " + url);
         DevLog.print("encode", "after check");
         String rsl = "";
         boolean isUrlContains = true;
@@ -56,20 +55,5 @@ public class UrlsManager {
     public Collection<Link> getAll() {
         return linkMap.values();
     }
-    
-//    /**
-//     * extract domainUrl from url to encode and check it in {@code SiteManager}.
-//     *
-//     * @param url link for checking.
-//     * @return true -> if url contains registered domain.
-//     */
-//    private boolean checkDomainsUrl(String url)  {
-//        try {
-//            return siteManager.contains(new URL(url).getHost());
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        }
-//        return false;
-//    }
     
 }

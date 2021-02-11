@@ -19,14 +19,18 @@ public class JwtUserDetailsService implements UserDetailsService {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
     
-
+    
+    /**
+     * @implNote passwordEncoder.encode(site.getPassword())
+     * - use this, if you use NOT Spring DAO data store{@code List, Set, map, etc...}.
+     * Else: it don't need, cause Spring make it by himself.
+     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Site site = siteManager.getByLogin(username);
         if (site == null) {
             throw new UsernameNotFoundException(username);
         }
-        /* use this, if you use NOT Spring DAO data store{@code List, Set, map, etc...}. */
         return new User(site.getLogin(), passwordEncoder.encode(site.getPassword()), new ArrayList<>());
     }
     
