@@ -22,7 +22,7 @@ Content-Type: application/json
 ## encode url
 POST http://localhost:8083/shortcut/urls/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhc2RmIiwiZXhwIjoxNjEyNzM4MjI0LCJpYXQiOjE2MTI3MjAyMjR9.O84NRpovqYWXVN9x84UX0WLbHF5GfOqEEH-vkYaZ5cl5TfV_vhi75R92KCtmMhivmlDCECfz0ufORv4zp_8I-g
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhc2RmIiwiZXhwIjoxNjE2NDUyNjQ4LCJpYXQiOjE2MTY0MzQ2NDh9.CEQIag_sIFLnyYWfr-3iQMsB8QnGZOulhoj_X0hGA4a8Qglc2HBzo1BowQtLuq250WteLoiBMYw2qOGwf--xwA
 
 {
   "url": "job4j.ru/edu"
@@ -34,10 +34,10 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhc2RmIiwiZXhwIjoxNjEyNzM4M
 ## "urlKey": "UNIQUE_CODE" - change every runtime.
 GET http://localhost:8083/shortcut/urls/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhc2RmIiwiZXhwIjoxNjEyNzM4MjI0LCJpYXQiOjE2MTI3MjAyMjR9.O84NRpovqYWXVN9x84UX0WLbHF5GfOqEEH-vkYaZ5cl5TfV_vhi75R92KCtmMhivmlDCECfz0ufORv4zp_8I-g
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhc2RmIiwiZXhwIjoxNjE2NDUyNjQ4LCJpYXQiOjE2MTY0MzQ2NDh9.CEQIag_sIFLnyYWfr-3iQMsB8QnGZOulhoj_X0hGA4a8Qglc2HBzo1BowQtLuq250WteLoiBMYw2qOGwf--xwA
 
 {
-  "urlKey": "mHbMoCNNajNiUxDBNAJmtIhPaxZ6DxQs"
+  "urlKey": "l9ZNVKOiWjimiABtTL059ocwaO0GcMlh"
 }
 
 ###
@@ -48,14 +48,14 @@ GET http://localhost:8083/shortcut/urls/redirect
 Content-Type: application/json
 
 {
-  "urlKey": "mHbMoCNNajNiUxDBNAJmtIhPaxZ6DxQs"
+  "urlKey": "l9ZNVKOiWjimiABtTL059ocwaO0GcMlh"
 }
 
 ###
 
 ## get statistic
 GET http://localhost:8083/shortcut/urls/statistic
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhc2RmIiwiZXhwIjoxNjEyNzM4MjI0LCJpYXQiOjE2MTI3MjAyMjR9.O84NRpovqYWXVN9x84UX0WLbHF5GfOqEEH-vkYaZ5cl5TfV_vhi75R92KCtmMhivmlDCECfz0ufORv4zp_8I-g
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhc2RmIiwiZXhwIjoxNjE2NDUyNjQ4LCJpYXQiOjE2MTY0MzQ2NDh9.CEQIag_sIFLnyYWfr-3iQMsB8QnGZOulhoj_X0hGA4a8Qglc2HBzo1BowQtLuq250WteLoiBMYw2qOGwf--xwA
 
 
 ###

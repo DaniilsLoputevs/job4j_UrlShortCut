@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.job4j.url_shortcut.models.Link;
+import ru.job4j.url_shortcut.models.StatisticDTO;
 import ru.job4j.url_shortcut.services.UrlsManager;
 
 import java.util.Collection;
@@ -23,11 +23,11 @@ public class UrlsController {
      * Register Url then return unique cod for Decode this url.
      * Request body:
      * {
-     *   "url": "YOUR_URL"
+     * "url": "YOUR_URL"
      * }
      * Response body:
      * {
-     *   "urlKey": "UNIQUE_CODE_FOR_YOUR_URL"
+     * "urlKey": "UNIQUE_CODE_FOR_YOUR_URL"
      * }
      */
     @PostMapping(CONTROLLER_URLS)
@@ -40,11 +40,11 @@ public class UrlsController {
      * Decode ulrKey into Url, then return decoded url.
      * Request body:
      * {
-     *   "urlKey": "UNIQUE_CODE_FOR_YOUR_URL"
+     * "urlKey": "UNIQUE_CODE_FOR_YOUR_URL"
      * }
      * Response body:
      * {
-     *   "url": "YOUR_URL"
+     * "url": "YOUR_URL"
      * }
      */
     @GetMapping(CONTROLLER_URLS)
@@ -57,11 +57,11 @@ public class UrlsController {
      * * This mapping doesn't need Authorization.
      * Request body:
      * {
-     *   "urlKey": "UNIQUE_CODE_FOR_YOUR_URL"
+     * "urlKey": "UNIQUE_CODE_FOR_YOUR_URL"
      * }
      * Response body:
      * {
-     *   "url": "YOUR_URL"
+     * "url": "YOUR_URL"
      * }
      */
     @GetMapping(CONTROLLER_URLS_REDIRECT)
@@ -71,7 +71,7 @@ public class UrlsController {
     }
     
     @GetMapping(CONTROLLER_URLS_STATISTIC)
-    private ResponseEntity<Collection<Link>> getStatistic() {
+    private ResponseEntity<Collection<StatisticDTO>> getStatistic() {
         return ResponseEntity.ok(urlsManager.getAll());
     }
     
