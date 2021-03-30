@@ -1,0 +1,12 @@
+# используем язык java. Travis CI поддерживает другие языки тоже.
+language: java
+jdk:
+- openjdk14
+
+# Отправлять уведомление на почту laiwiense@gmail.com
+notifications:
+  email:
+    recipients:
+      -laiwiense@gmail.com
+    on_success: never # default: change
+    on_failure: always # default: always
